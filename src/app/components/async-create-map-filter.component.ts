@@ -3,11 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Observer } from 'rxjs/Observer';
 
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
+
 @Component({
-  selector: 'app-create-method-async',
+  selector: 'async-create-map-filter',
   template: `<h1>Basic observable</h1>`
 })
-export class CreateMethodAsyncComponent implements OnInit {
+export class AsyncCreateMapFilterComponent implements OnInit {
 
   numbers = [1, 2, 3, 4];
   source = Observable.create(observer => {
@@ -22,7 +25,7 @@ export class CreateMethodAsyncComponent implements OnInit {
       }
     };
     produceValue();
-  });
+  }).map(n => n * 2).filter(n => n > 4);
 
   ngOnInit() {
     this.source.subscribe(new MyObserver());
