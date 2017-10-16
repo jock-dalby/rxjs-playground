@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Observer } from 'rxjs/Observer';
 
 @Component({
-  selector: 'app-from-method-short',
+  selector: 'from-method-short',
   template: `<h1>Basic observable short</h1>`
 })
 export class FromMethodShortComponent implements OnInit {

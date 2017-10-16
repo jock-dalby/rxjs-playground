@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Observer } from 'rxjs/Observer';
 
 @Component({
-  selector: 'app-from-method',
+  selector: 'from-method',
   template: `<h1>Basic observable</h1>`
 })
 export class FromMethodComponent implements OnInit {
