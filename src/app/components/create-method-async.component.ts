@@ -4,13 +4,25 @@ import { Observable } from 'rxjs';
 import { Observer } from 'rxjs/Observer';
 
 @Component({
-  selector: 'app-basic-observable',
+  selector: 'app-create-method-async',
   template: `<h1>Basic observable</h1>`
 })
-export class BasicObservableComponent implements OnInit {
+export class CreateMethodAsyncComponent implements OnInit {
 
   numbers = [1, 2, 3, 4];
-  source = Observable.from(this.numbers);
+  source = Observable.create(observer => {
+    let index = 0;
+    const produceValue = () => {
+      observer.next(this.numbers[index++]);
+
+      if (index < this.numbers.length) {
+        setTimeout(produceValue, 2000);
+      } else {
+        observer.complete();
+      }
+    };
+    produceValue();
+  });
 
   ngOnInit() {
     this.source.subscribe(new MyObserver());

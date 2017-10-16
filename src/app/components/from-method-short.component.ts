@@ -4,10 +4,10 @@ import { Observable } from 'rxjs';
 import { Observer } from 'rxjs/Observer';
 
 @Component({
-  selector: 'app-basic-observable-short',
+  selector: 'app-from-method-short',
   template: `<h1>Basic observable short</h1>`
 })
-export class BasicObservableShortComponent implements OnInit {
+export class FromMethodShortComponent implements OnInit {
 
   numbers = [1, 2, 3, 4];
   source = Observable.from(this.numbers);
